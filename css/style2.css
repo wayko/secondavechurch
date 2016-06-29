@@ -1,0 +1,22 @@
+.fullimg img
+{
+	width: 100%;
+}
+.fullimg2 img
+{
+	width: 90%;
+}
+body{
+	background: url("../img/eaeaff-100.jpg") repeat scroll 0 0 #EAEAFF;
+}
+.tops
+{
+	margin-top: 20px;
+}
+h2{
+	font-family: 'Tangerine', serif;
+  font-size: 60px;
+  text-shadow: 4px 4px 4px #aaa;
+  color:#80161a;
+
+}

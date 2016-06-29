@@ -1,0 +1,11 @@
+.fullimg img
+{
+	width: 100%;
+}
+.fullimg2 img
+{
+	width: 90%;
+}
+body{
+	background: url("../img/eaeaff-100.jpg") repeat scroll 0 0 #EAEAFF;
+}
