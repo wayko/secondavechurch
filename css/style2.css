@@ -7,7 +7,7 @@
 	width: 90%;
 }
 body{
-	background: url("../img/eaeaff-100.jpg") repeat scroll 0 0 #EAEAFF;
+	
 }
 .tops
 {
@@ -19,4 +19,11 @@ h2{
   text-shadow: 4px 4px 4px #aaa;
   color:#80161a;
 
+}
+.tops{
+	font-weight:bold;
+}
+.wrapper
+{
+	border: 0;
 }
