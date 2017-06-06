@@ -2,7 +2,80 @@
     //***************//
 	//main app module//
 	//***************//
-	var app = angular.module('SACNYC',['pascalprecht.translate']);
+	var app = angular.module('SACNYC',['pascalprecht.translate','ngCart']);
+	
+	
+	//---------------//
+	//shopping cart  //
+	//---------------//
+	
+	app.filter('myFilter', function () {
+        return function (items, count) {
+            var result = [];
+            for (var i = 0; i < items.length && result.length < count; ++i) {
+                if (items[i].available > 0) result.push(items[i]);
+            }
+            return result;
+        };
+    });
+app.controller("ItemsController",['ngCart', '$scope',  function(ngCart, $scope){
+	
+	ngCart.setTaxRate(0.00);
+    ngCart.setShipping(0.00); 
+	this.items = allItems;
+	$scope.itemsPerListing = 3;
+	var shifteditem = [];
+	var shifteditems = [];
+	var counter;
+$scope.nextitem = function () {
+	  this.items = allItems;
+		if($scope.itemsPerListing >= this.items.length)
+		{
+			$scope.itemsPerListing =  this.items.length;
+			console.log($scope.itemsPerListing);
+		}
+		else
+		{
+		shifteditem.push( $scope.items.shift());
+		counter = shifteditem.length;
+		 console.log(this.items.length);
+		 if (counter > $scope.itemsPerListing)
+		 {
+			 counter  = this.items.length + 2;
+			
+		 }
+		}		 
+  };
+ 
+$scope.previtem = function() {
+	this.items = allItems;
+	
+	if(counter > 0){
+		$scope.items.unshift(shifteditem[counter-1]);
+		counter = counter - 1;
+		console.log(counter);
+	}	
+};
+}]);
+var allItems = [
+{
+	id:0,
+	name: "$5.00 Donation",
+	price: 5.00,
+	available: 1
+},
+{
+	id:1,
+	name: "$10.00 Donation",
+	price: 10.00,
+	available: 1
+}
+];
+//---end--//
+	
+	
+	
+	
 	//*********************//
 	//navigation controller//
 	//********************//
@@ -33,6 +106,10 @@
 		{
 			name: "Special Announcements",
 			location: "#special"
+		},
+		{
+			name: "Donations",
+			location: "#donations"
 		}
 	];
 	//****************************//
@@ -171,4 +248,8 @@ app.controller('Ctrl',['$scope','$translate',function($scope, $translate){
 		$translate.use(key);
 	};
 }]);
+
+
+
+
 })();

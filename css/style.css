@@ -321,10 +321,10 @@
 			
 	.box
 	{
-		background: #fff;
-		box-shadow: inset 0px 0px 0px 1px rgba(0,0,0,0.15), 0px 2px 3px 0px rgba(0,0,0,0.1);
+		
+		
 		text-align: center;
-		min-height: 320px;
+		min-height: 100px;
 	}
 
 		.box .image-full
@@ -509,3 +509,27 @@
 		{
 			color: #777;
 		}
+		
+
+
+	span[ng-click]{
+		cursor: pointer;
+	}
+	.addcart
+	{
+		padding:0 15px;
+		
+	}
+	input.amount_number
+	{
+		background:transparent;
+		width:198px;
+		height:62px;
+		font-size:3em;
+		border:none;
+	}
+	.currentSymbol
+	{
+		font-size:2em;
+		
+	}
