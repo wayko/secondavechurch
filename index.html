@@ -242,6 +242,21 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/sacontact.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+function formatNumber(newNumb){
+	var numArray = []
+	numArray.join(newNumb);
+return newNumb;	
+}
+var endval
+	$(".amount_number").blur(function(){
+	var newval = $(".amount_number").val();
+	 $(".amount_number").val(formatNumber(newval) + '.00');
+	});
+	
+});
+</script>
 </body>
 
 <!--End Contact Us Section-->
