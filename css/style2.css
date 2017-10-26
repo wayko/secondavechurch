@@ -27,3 +27,8 @@ h2{
 {
 	border: 0;
 }
+
+.dropdown-menu
+{
+	background: rgba(0, 0, 0, .75);
+}
