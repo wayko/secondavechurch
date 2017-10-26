@@ -2,7 +2,7 @@
     //***************//
 	//main app module//
 	//***************//
-	var app = angular.module('SACNYC',['pascalprecht.translate','ngCart']);
+	var app = angular.module('SACNYC',['pascalprecht.translate','ngCart','ui.bootstrap']);
 	
 	
 	//---------------//
@@ -88,27 +88,108 @@ var allItems = [
 	var navItems = [
 		{
 			name: "Home",
+			classinfo:"",
+			dropdownli:[
+							{
+							  li1:"",
+							  li2:"",
+							  li3:"",
+							  li4:"",
+							  li5:"",
+							  li6:""
+							}
+					   ],
 			location: "#top"
 		},
 		{
+			name: "About",
+			classinfo:"class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'",
+			dropdownli:[
+							{
+							  li1:"Hands on project experiences",
+							  li2:"Work as a team with other students and members",
+							  li3:"Resources",
+							  li4:"Access to academic help from STEM mentors, professors, and students.",
+							  li5:"Events",
+							  li6:"For a complete list of events please email us."
+							}
+					   ],
+			location: "#"
+		},
+		{
 			name: "Visit",
+			classinfo:"",
+			dropdownli:[
+							{
+							  li1:"",
+							  li2:"",
+							  li3:"",
+							  li4:"",
+							  li5:"",
+							  li6:""
+							}
+					   ],
 			location: "#visit"
 		},
 		{
 			name: "What We Believe",
+			classinfo:"",
+			dropdownli:[
+							{
+							  li1:"",
+							  li2:"",
+							  li3:"",
+							  li4:"",
+							  li5:"",
+							  li6:""
+							}
+					   ],
 			location: "#corevalues"
 		},
 		
 		{
 			name: "Contact Us",
+			classinfo:"",
+			dropdownli:[
+							{
+							  li1:"",
+							  li2:"",
+							  li3:"",
+							  li4:"",
+							  li5:"",
+							  li6:""
+							}
+					   ],
 			location: "#contactus"
 		},
 		{
 			name: "Special Announcements",
+			classinfo:"",
+			dropdownli:[
+							{
+							  li1:"",
+							  li2:"",
+							  li3:"",
+							  li4:"",
+							  li5:"",
+							  li6:""
+							}
+					   ],
 			location: "#special"
 		},
 		{
 			name: "Donations",
+			classinfo:"",
+			dropdownli:[
+							{
+							  li1:"",
+							  li2:"",
+							  li3:"",
+							  li4:"",
+							  li5:"",
+							  li6:""
+							}
+					   ],
 			location: "#donations"
 		}
 	];
@@ -137,7 +218,7 @@ var allItems = [
 	//********************//
 var levelTwo =
 {
-	images: "img/IMG_8287.JPG"	
+	images: "img/IMG_82872.JPG"	
 }
 
 /* app.controller('LevelThreeController',function(){
