@@ -203,7 +203,7 @@ var allItems = [
 	//level one items//
 	//**************//
 	var levelOne = {
-	images: "img/IMG_8228.jpg",
+	images: "img/IMG_82282.jpg",
 	companyWelcome: "Welcome To DreamCPU." 
 	}
 	
