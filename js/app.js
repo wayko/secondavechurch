@@ -8,191 +8,20 @@
 	//---------------//
 	//shopping cart  //
 	//---------------//
-	
-	app.filter('myFilter', function () {
-        return function (items, count) {
-            var result = [];
-            for (var i = 0; i < items.length && result.length < count; ++i) {
-                if (items[i].available > 0) result.push(items[i]);
-            }
-            return result;
-        };
-    });
-app.controller("ItemsController",['ngCart', '$scope',  function(ngCart, $scope){
-	
-	ngCart.setTaxRate(0.00);
-    ngCart.setShipping(0.00); 
-	this.items = allItems;
-	$scope.itemsPerListing = 3;
-	var shifteditem = [];
-	var shifteditems = [];
-	var counter;
-$scope.nextitem = function () {
-	  this.items = allItems;
-		if($scope.itemsPerListing >= this.items.length)
-		{
-			$scope.itemsPerListing =  this.items.length;
-			console.log($scope.itemsPerListing);
-		}
-		else
-		{
-		shifteditem.push( $scope.items.shift());
-		counter = shifteditem.length;
-		 console.log(this.items.length);
-		 if (counter > $scope.itemsPerListing)
-		 {
-			 counter  = this.items.length + 2;
-			
-		 }
-		}		 
-  };
- 
-$scope.previtem = function() {
-	this.items = allItems;
-	
-	if(counter > 0){
-		$scope.items.unshift(shifteditem[counter-1]);
-		counter = counter - 1;
-		console.log(counter);
-	}	
-};
+angular.module('defaultValueSelect', [])
+ app.controller('ExampleController', ['$scope', function($scope) {
+   $scope.data = {
+    availableOptions: [
+      {id: '1', name: 'Open Donation'},
+      {id: '2', name: 'Renovation Building Fund'},
+	  {id: '3', name: 'Ministries'}
+    ],
+    selectedOption: {id: '1', name: 'Open Donation'} //This sets the default value of the select in the ui
+    };
 }]);
-var allItems = [
-{
-	id:0,
-	name: "$5.00 Donation",
-	price: 5.00,
-	available: 1
-},
-{
-	id:1,
-	name: "$10.00 Donation",
-	price: 10.00,
-	available: 1
-}
-];
+
+
 //---end--//
-	
-	
-	
-	
-	//*********************//
-	//navigation controller//
-	//********************//
-	app.controller('NavigationController', function(){
-		this.navigations = navItems;
-	});
-	//****************//
-	//navigation array//
-	//****************//
-	var navItems = [
-		{
-			name: "Home",
-			classinfo:"",
-			dropdownli:[
-							{
-							  li1:"",
-							  li2:"",
-							  li3:"",
-							  li4:"",
-							  li5:"",
-							  li6:""
-							}
-					   ],
-			location: "#top"
-		},
-		{
-			name: "About",
-			classinfo:"class='dropdown-toggle' data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false'",
-			dropdownli:[
-							{
-							  li1:"Hands on project experiences",
-							  li2:"Work as a team with other students and members",
-							  li3:"Resources",
-							  li4:"Access to academic help from STEM mentors, professors, and students.",
-							  li5:"Events",
-							  li6:"For a complete list of events please email us."
-							}
-					   ],
-			location: "#"
-		},
-		{
-			name: "Visit",
-			classinfo:"",
-			dropdownli:[
-							{
-							  li1:"",
-							  li2:"",
-							  li3:"",
-							  li4:"",
-							  li5:"",
-							  li6:""
-							}
-					   ],
-			location: "#visit"
-		},
-		{
-			name: "What We Believe",
-			classinfo:"",
-			dropdownli:[
-							{
-							  li1:"",
-							  li2:"",
-							  li3:"",
-							  li4:"",
-							  li5:"",
-							  li6:""
-							}
-					   ],
-			location: "#corevalues"
-		},
-		
-		{
-			name: "Contact Us",
-			classinfo:"",
-			dropdownli:[
-							{
-							  li1:"",
-							  li2:"",
-							  li3:"",
-							  li4:"",
-							  li5:"",
-							  li6:""
-							}
-					   ],
-			location: "#contactus"
-		},
-		{
-			name: "Special Announcements",
-			classinfo:"",
-			dropdownli:[
-							{
-							  li1:"",
-							  li2:"",
-							  li3:"",
-							  li4:"",
-							  li5:"",
-							  li6:""
-							}
-					   ],
-			location: "#special"
-		},
-		{
-			name: "Donations",
-			classinfo:"",
-			dropdownli:[
-							{
-							  li1:"",
-							  li2:"",
-							  li3:"",
-							  li4:"",
-							  li5:"",
-							  li6:""
-							}
-					   ],
-			location: "#donations"
-		}
-	];
 	//****************************//
 	//Level One Section controller//
 	//****************************//

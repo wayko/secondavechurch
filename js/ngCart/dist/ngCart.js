@@ -31,9 +31,9 @@ angular.module('ngCart', ['ngCart.directives'])
 
         this.init = function(){
             this.$cart = {
-                shipping : null,
-                taxRate : null,
-                tax : null,
+                shipping : 0,
+                taxRate : 0,
+                tax : 0,
                 items : []
             };
         };
@@ -41,7 +41,7 @@ angular.module('ngCart', ['ngCart.directives'])
         this.addItem = function (id, name, price, quantity, data) {
 
             var inCart = this.getItemById(id);
-
+		
             if (typeof inCart === 'object'){
                 //Update quantity of an item if it's already in the cart
                 inCart.setQuantity(quantity, false);
@@ -56,11 +56,13 @@ angular.module('ngCart', ['ngCart.directives'])
 
         this.getItemById = function (itemId) {
             var items = this.getCart().items;
+			
             var build = false;
 
             angular.forEach(items, function (item) {
                 if  (item.getId() === itemId) {
                     build = item;
+					
                 }
             });
             return build;

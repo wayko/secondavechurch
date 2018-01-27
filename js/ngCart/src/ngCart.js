@@ -31,9 +31,9 @@ angular.module('ngCart', ['ngCart.directives'])
 
         this.init = function(){
             this.$cart = {
-                shipping : null,
-                taxRate : null,
-                tax : null,
+                shipping : 0,
+                taxRate : 0,
+                tax : 0,
                 items : []
             };
         };
