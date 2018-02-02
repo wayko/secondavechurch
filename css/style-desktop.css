@@ -133,6 +133,7 @@
 	
 		#nav a
 		{
+			
 			padding: 0.2em 1em 0.2em 1em;
 			margin: 0.6em 0.2em 0.6em 0.2em;
 			font-weight: 600;
@@ -152,6 +153,11 @@ outline: 0;
 .dropdown-menu1
 {
 	display:hidden;
+}
+
+.navwrap
+{
+	margin-left: 18.75em;
 }
 
 	

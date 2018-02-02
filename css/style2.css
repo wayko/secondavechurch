@@ -38,3 +38,39 @@ h2{
 	color: #313c61;
 }
 
+.calendar
+{
+	position: relative;
+	left:175px;
+	top: 200px;
+	margin-bottom: 25px;
+	width: 500px;
+	
+}
+
+.calendar h1
+{
+	
+	border: 1px solid;
+	background-color:  #383838;
+	width: 500px;
+	height: 180px;
+	color:#fff;
+	padding-left: .3125em;
+	
+	
+}
+.description
+{
+	font-size: 1.5em;
+	color: #000;
+	
+}
+
+.morecontent span {
+    display: none;
+}
+.morelink {
+    display: block;
+}
+
