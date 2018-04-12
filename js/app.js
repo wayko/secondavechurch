@@ -12,11 +12,13 @@ angular.module('defaultValueSelect', [])
  app.controller('ExampleController', ['$scope', function($scope) {
    $scope.data = {
     availableOptions: [
-      {id: '1', name: 'Open Donation'},
-      {id: '2', name: 'Renovation Building Fund'},
-	  {id: '3', name: 'Ministries'}
+      {id: '1', name: 'Tithes Offering'},
+      {id: '2', name: 'Great Commission Fund'},
+	  {id: '3', name: 'Building Renovation Fund'},
+	  {id: '4', name: 'General Operation / Open Donation'},
+	  {id: '5', name: 'Women\'s Ministry Retreat'}
     ],
-    selectedOption: {id: '1', name: 'Open Donation'} //This sets the default value of the select in the ui
+    selectedOption: {id: '1', name: 'Tithes Offering'} //This sets the default value of the select in the ui
     };
 }]);
 
