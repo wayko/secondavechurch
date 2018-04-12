@@ -1,0 +1,40 @@
+<nav id="nav">
+<ul class="container">
+<li ng-repeat="navigation in navCtrl.navigations" class="dropdown"><a href="{{navigation.location}}" class="{{navigation.classinfo}}">{{navigation.name}}</a>
+<ul class="dropdown-menu" ng-repeat="liheads in navigation.dropdownli">
+<li>{{liheads.li1}}</li>
+<li>{{liheads.li2}}</li>
+<li>{{liheads.li3}}</li>
+<li>{{liheads.li4}}</li>
+<li>{{liheads.li5}}</li>
+<li>{{liheads.li6}}</li>
+</ul>
+</li>
+</ul>
+
+ <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">Dropdown </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+
+<ul ng-controller="Ctrl">
+<li translate="QUESTION"></li>
+<div class="btn-group">
+  <button type="button" class="btn btn-primary" ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN"></button>
+  <button type="button" class="btn btn-info" ng-click="changeLanguage('es')" translate="BUTTON_LANG_ES">
+</div>
+
+
+
+
+</ul>
+</nav>

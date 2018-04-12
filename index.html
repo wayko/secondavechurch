@@ -27,7 +27,11 @@
 <div class="row">
 <div class="navbar-header">
 <div class="navbar-collapse centernav" id="bs-example-navbar-collapse-1 ">
-
+<ul class="nav navbar-nav">
+<li class="dropdown">
+    <a class="url" type="button" href="index.html"><img src="img/church.png" alt="home"/></a>
+	  </li>
+    </ul>
 <ul class="nav navbar-nav">
 <li class="dropdown">
     <a class="url" type="button" data-toggle="dropdown">Visit</a>
@@ -65,7 +69,11 @@
 	  </ul>
     </li>
   </ul>
-
+<ul class="nav navbar-nav">
+<li class="dropdown">
+    <a href="events.php" class="url">Events</a>
+  </li>
+  </ul>
 
 <ul class="nav navbar-nav">
 <li class="dropdown">
@@ -106,7 +114,7 @@
 <h2 translate="whatWeBelieve" class="blue"></h2>
 </header>
 <section>
-<p translate="sacCMA"></p>
+<p translate="sacCMA" class="linespace"></p>
 <p translate="sacMoreInfo"></p><a href="http://www.cmalliance.org">www.cmalliance.org</a>
 </section>
 <hr>
@@ -128,7 +136,7 @@
 </section>
 <section>
 <h5 translate="prayerTitle"></h5>
-<p translate="prayerMessage"></p>
+<p translate="prayerMessage" class="linespace"></p>
 <hr>
 </section>
 <section>
@@ -136,7 +144,7 @@
 </section>
 <section>
 <h5 translate="stewardshipTitle"></h5>
-<p translate="stewardshipMessage"></p>
+<p translate="stewardshipMessage" class="linespace"></p>
 <hr>
 </section>
 <section>
@@ -152,7 +160,7 @@
 </section>
 <section>
 <h5 translate="greatTitle"></h5>
-<p translate="greatMessage"></p>
+<p translate="greatMessage" class="linespace"></p>
 <hr>
 </section>
 <section>
@@ -160,7 +168,7 @@
 </section>
 <section>
 <h5 translate="faithTitle"></h5>
-<p translate="faithMessage"></p>
+<p translate="faithMessage" class="linespace"></p>
 <hr>
 </section>
 </article>
@@ -183,19 +191,20 @@
 									<div>
 										<div class="row half">
 											<div class="4u">
-												<input type="text" translate translate-attr-placeholder="name "placeholder="name" id="namec" name="namec">
+												 <input type="text" translate translate-attr-placeholder="name" placeholder="name" id="namec" name="namec">
 											</div>
 											<div class="6u">
-												<input type="text" translate translate-attr-placeholder="email" placeholder="" id="emailc" name="emailc">
+												<input type="text" translate translate-attr-placeholder="email" placeholder="email" id="emailc" name="emailc">
 											</div>
 										</div>
 										<div class="row half">
 											<div class="12u">
-												<input type="text" translate translate-attr-placeholder="subject" placeholder="" id="subjectc" name="subjectc">
+											<input type="text" translate translate-attr-placeholder="subject" placeholder="subject" id="subjectc" name="subjectc">
 											</div>
 										</div>
 										<div class="row half">
 											<div class="12u">
+										
 												<textarea  placeholder="" translate translate-attr-placeholder="messages" id="messagec" name="messagec"></textarea>
 											</div>
 										</div>
@@ -235,7 +244,7 @@
 										</div>
 										<div class="row">
 											<div>
-												<button id="sendrequest2" translate="sendMessage" class="button sendprayer"></button>
+												<button id="sendrequest2" translate="sendMessage" class="button sendprayer">Send Prayer Request</button>
 												<button translate="clearForm" class="button button-alt"></button>
 											</div>
 										</div>

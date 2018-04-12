@@ -21,7 +21,11 @@ h2{
 
 }
 .tops{
-	font-weight:bold;
+	font-family: 'Tangerine', serif;
+	font-size: 45px;
+  text-shadow: 4px 4px 4px #aaa;
+  color:#80161a;
+	
 }
 .wrapper
 {
@@ -74,3 +78,16 @@ h2{
     display: block;
 }
 
+.table-borderless > tbody > tr > td,
+.table-borderless > tbody > tr > th,
+.table-borderless > tfoot > tr > td,
+.table-borderless > tfoot > tr > th,
+.table-borderless > thead > tr > td,
+.table-borderless > thead > tr > th {
+    border: none;
+}
+
+.linespace
+{
+	line-height: 1.6;
+}

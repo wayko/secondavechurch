@@ -1,87 +1,29 @@
 <?php
-  require_once __DIR__ . '/vendor/autoload.php';
 
-  date_default_timezone_set('America/New_York');
-  
-  putenv('GOOGLE_APPLICATION_CREDENTIALS=servicea.json');
-  $REDIRECT_URI = 'http://' . $_SERVER['HTTP_HOST'] .'/secondavechurch/calendar2.php';
-  $KEY_LOCATION = __DIR__ . '/client_secret.json';
-  $SERVICE_ACCOUNT_NAME = 'caledarviews@leafy-brace-193816.iam.gserviceaccount.com';
-  $TOKEN_FILE   = "token.txt";
-  
+require_once __DIR__.'/vendor/autoload.php';
+
+putenv('GOOGLE_APPLICATION_CREDENTIALS=servicea.json');
   $SCOPES = array(
       Google_Service_Calendar::CALENDAR_READONLY
   );
-  
-  $client = new Google_Client();
-  $client->useApplicationDefaultCredentials();
-  $client->setApplicationName("Second Ave Church Calendar");
-  $client->setAuthConfig($KEY_LOCATION);
-  $service = new Google_Service_Calendar($client);
-  // Incremental authorization
-  $client->setIncludeGrantedScopes(true);
-  
-  // Allow access to Google API when the user is not present. 
+  $REDIRECT_URI = 'http://' . $_SERVER['HTTP_HOST'] .'/secondavechurch/calendar3.php';
+  try {
+$client = new Google_Client();
+$client->useApplicationDefaultCredentials();
   $client->setAccessType('offline');
   $client->setApprovalPrompt ("force");
   $client->setRedirectUri($REDIRECT_URI);
   $client->setScopes($SCOPES);
+ $service = new Google_Service_Calendar($client);
   
-  if (isset($_GET['code']) && !empty($_GET['code'])) {
-      try {
-          // Exchange the one-time authorization code for an access token
-          $accessToken = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-          
-          // Save the access token and refresh token in local filesystem
-          file_put_contents($TOKEN_FILE, json_encode($accessToken));
-          
-          $_SESSION['accessToken'] = $accessToken;
-          header('Location: ' . filter_var($REDIRECT_URI, FILTER_SANITIZE_URL));
-          exit();
-      }
-      catch (\Google_Service_Exception $e) {
-          print_r($e);
-      }
-  }
-  
-  if (!isset($_SESSION['accessToken'])) {
-      
-      $token = @file_get_contents($TOKEN_FILE);
-      
-      if ($token == null) {
-          
-          // Generate a URL to request access from Google's OAuth 2.0 server:
-          $authUrl = $client->createAuthUrl();
-          
-          // Redirect the user to Google's OAuth server
-          header('Location: ' . filter_var($authUrl, FILTER_SANITIZE_URL));
-          exit();
-          
-      } else {
-          
-          $_SESSION['accessToken'] = json_decode($token, true);
-          
-      }
-  }
-  
-  $client->setAccessToken($_SESSION['accessToken']);
-  
-  /* Refresh token when expired */
-  if ($client->isAccessTokenExpired()) {
-	 unlink($TOKEN_FILE);
-      // the new access token comes with a refresh token as well
-      $client->fetchAccessTokenWithRefreshToken($client->getRefreshToken());
-      file_put_contents($TOKEN_FILE, json_encode($client->getAccessToken()));
-  }
-  $currentEvents = date('Y-m-d', strtotime(date('Y-m-1'))) . 'T00:00:00-23:59';
+ $currentEvents = date('Y-m-d', strtotime(date('Y-m-1'))) . 'T00:00:00-23:59';
   $currentMonth = date('F');
   $currentYear = date('Y');
   $endDay = get_number_of_days_in_month(date('m'), $currentYear);
   $endOfMonth = date('Y-m-d', strtotime(date('Y-m-' . $endDay ))) . 'T00:00:00-23:59';
- 
-
-  $calendarId = 'wayko621@gmail.com';
-$optParams = array(
+  
+ $calendarId = 'wayko621@gmail.com';
+ $optParams = array(
   'maxResults' => 100,
   'orderBy' => 'startTime',
    'singleEvents' => TRUE,
@@ -91,7 +33,7 @@ $optParams = array(
 );
  $results = $service->events->listEvents($calendarId, $optParams);
 
-if (count($results->getItems()) == 0) {
+ if (count($results->getItems()) == 0) {
   $Heading =  "No upcoming events found.\n";
 } else {
   $Heading =  $currentMonth . " events:\n";
@@ -111,7 +53,13 @@ if (count($results->getItems()) == 0) {
    echo "<div class='calendar'><h1>" .$event->getSummary() . "</h1>  <h3 class='getdates'>" . $formattedDate . " </h3><br /><span class='description'>" . $description . "</span></div>";
   }
 }
- function get_number_of_days_in_month($month, $year) {
+
+
+  }catch (Exception $e){
+	  echo 'Caught Following Error '. $e->getMessage() . "\n";
+  }
+  
+   function get_number_of_days_in_month($month, $year) {
     // Using first day of the month, it doesn't really matter
     $date = $year."-".$month."-1";
     return date("t", strtotime($date));
