@@ -108,12 +108,13 @@
 
 
 				<br />
+				
 				<li><span class="currentSymbol">$</span>
-  <input type="text" class="amount_number" ng-model="pricing" placeholder="0.00" value="pricing|currency"></li>
+  <input class="amount_number" ng-model="pricing" type="text" placeholder="0.00" value="pricing|currency"/></li>
   <li>USD</li>
-		    
 
-				<ngcart-addtocart id="{{data.selectedOption.id}}" name="{{data.selectedOption.name}}" price ={{pricing}}><img src="img/donate2.png" class="box cartItem"></ngcart-addtocart>   
+				<ngcart-addtocart id="{{data.selectedOption.id}}" name="{{data.selectedOption.name}}" price ={{pricing}}><img src="img/donate2.png" class="box cartItem"></ngcart-addtocart>  
+		
 			</ul>
 		</article>		
 
@@ -131,9 +132,10 @@
 	<script src="js/bootstrap.js" type="text/javascript"></script>
 <script src="js/sacontact.js" type="text/javascript"></script>
 <script src="js/menuHover.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
-function formatNumber(newNumb){
+	function formatNumber(newNumb){
 	var numArray = []
 	numArray.join(newNumb);
 return newNumb;	
@@ -141,7 +143,14 @@ return newNumb;
 var endval
 	$(".amount_number").blur(function(){
 	var newval = $(".amount_number").val();
+		if(newval.includes(".00"))
+		{
+			$(".amount_number").val(formatNumber(newval));
+		}
+		else
+		{
 	 $(".amount_number").val(formatNumber(newval) + '.00');
+	 }
 	});
 	
 });
